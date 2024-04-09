@@ -56,3 +56,45 @@ def handle_borrow(name:str, membership_number:int,book):
 
 
 ################################
+
+####### FUNCTION MAIN ##########
+def main():
+    while True:
+        print('-' * 40)
+        user_choice = int(input('Choose an option:\n'
+                                '1. Borrow Book.\n'
+                                '2. Return Book.\n'
+                                '3. Review Borrowed Books.\n'
+                                '4. Manage Inventory.\n'
+                                '5. Quit the program.'))
+        print('-' * 40)
+        if user_choice == 1:
+            while True:
+                name = input('Insert your name >>> ')
+                if 1 <= len(name) <= 20 and name.isalpha():
+                    print(name)
+                    break
+                else:
+                    print('Please ensure the name is correct: not exceed 20 characters!')
+            while True:
+                try:
+                    membership_number = int(input('Insert membership numbre >>> '))
+                    break
+                except ValueError:
+                    print(
+                        'Membership number should be numeric'
+                    )
+            while True:
+                book = input('Insert a book name >>> ')
+                handle_borrow(name, membership_number, book)
+                break
+
+        # elif user_choice == 2:
+        # elif user_choice == 3:
+            
+        # elif user_choice == 4:
+        #     break
+################################
+
+if __name__ == '__main__':
+    main()
